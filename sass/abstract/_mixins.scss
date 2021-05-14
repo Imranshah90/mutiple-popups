@@ -1,0 +1,24 @@
+// MEDIA QUERY MANAGER
+
+/*
+
+$breakpoint arguement choices:
+- tab-port
+- desktop
+
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint==tab-port {
+        @media only screen and (min-width: 37.5em) {
+            @content
+        }
+        ; //600px
+    }
+    @if $breakpoint==desktop {
+        @media only screen and (max-width: 56.25em) {
+            @content
+        }
+        ; //900px
+    }
+}

@@ -1,0 +1,32 @@
+.btn-container {
+    padding: 1rem;
+    border-top: 1px solid $color-grey-lighter;
+    .btn {
+        font: inherit;
+        font-weight: 800;
+        padding: 0.5rem 2.5rem;
+        cursor: pointer;
+        border-radius: 4px;
+        background-color: $color-blue-dark;
+        color: white;
+        border: 1px solid $color-blue-dark;
+        margin: 0.2rem 0;
+        width: 100%;
+        @include respond(tab-port) {
+            width: 180px;
+            margin: 0 0.2rem;
+        }
+        &:hover {
+            background-color: $color-blue-light;
+            border-color: $color-blue-light;
+        }
+        &--alt {
+            background-color: transparent;
+            color: $color-blue-light;
+        }
+        &--alt:hover {
+            background-color: $color-blue-light;
+            color: $color-white;
+        }
+    }
+}

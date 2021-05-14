@@ -1,0 +1,15 @@
+{
+    "name": "jet2",
+    "version": "1.0.0",
+    "description": "jet2 technical assessment",
+    "main": "app.js",
+    "scripts": {
+        "compile:sass": "node-sass sass/main.scss css/styles.css -w"
+    },
+    "author": "Imran Shah",
+    "license": "ISC",
+    "dependencies": {},
+    "devDependencies": {
+        "node-sass": "^6.0.0"
+    }
+}

@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    background-color: $color-grey;
+    position: relative;
+}
+
+h1,
+h2 {
+    color: $color-black;
+    line-height: 1;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin: unset;
+    font-style: italic;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    color: $color-grey-lighter;
+    font-size: 0.9rem;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
