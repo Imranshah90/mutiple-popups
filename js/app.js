@@ -1,24 +1,25 @@
 const button = document.querySelector('button');
 
 
-let modal;
-let modal2;
+let confirmationModal;
+let thankYouModal;
 let backdrop;
 button.addEventListener('click', showModalHandler);
 
+// showModalHandler() function run once the "Book" button is clicked and generates the popup modal for conformation.
 function showModalHandler() {
-    if (modal) {
+    if (confirmationModal) {
         return;
     }
-
-    modal = document.createElement('div');
-    modal.className = 'modal';
+    // create the modal markup
+    confirmationModal = document.createElement('div');
+    confirmationModal.className = 'modal';
 
     const TextDiv = document.createElement('div');
     TextDiv.className = 'modal__text-container';
 
     const modalCheckImg = document.createElement('img');
-    modalCheckImg.setAttribute("src", "/images/check.png");
+    modalCheckImg.setAttribute("src", "./images/check.png");
     modalCheckImg.setAttribute("alt", "Ticked");
 
     const modalTextbold = document.createElement('h2');
@@ -39,7 +40,8 @@ function showModalHandler() {
     modalConfirmAction.textContent = 'Confirm';
     modalConfirmAction.className = 'btn';
     modalConfirmAction.addEventListener('click', ThanksModalHandler);
-    transition(modal);
+    // adds transition when modal shows
+    transition(confirmationModal);
 
     TextDiv.append(modalCheckImg);
     TextDiv.append(modalTextbold);
@@ -49,10 +51,10 @@ function showModalHandler() {
     ButtonDiv.append(modalConfirmAction);
 
 
-    modal.append(TextDiv);
-    modal.append(ButtonDiv);
+    confirmationModal.append(TextDiv);
+    confirmationModal.append(ButtonDiv);
 
-    document.body.append(modal);
+    document.body.append(confirmationModal);
 
     backdrop = document.createElement('div');
     backdrop.className = 'backdrop';
@@ -62,38 +64,38 @@ function showModalHandler() {
     document.body.append(backdrop);
 }
 
-
+// closeModalHandler() removes modal & dropback
 function closeModalHandler() {
-    modal.remove();
-    modal = null;
+    confirmationModal.remove();
+    confirmationModal = null;
 
     backdrop.remove();
     backdrop = null;
 }
 
-
+// removeCard() function removes the card element in back ground if the user click the confirmation button.
 function removeCard() {
     const card = document.querySelector('.card');
     card.remove();
 }
-
+// add transition function
 function transition($popup) {
     setTimeout(() => {
         $popup.classList.add("modal__active");
     }, 200)
 }
-
+// ThanksModalHandler() function runs once the "confirm" button is clicked and generates the  thankYouModal.
 function ThanksModalHandler() {
     closeModalHandler();
     removeCard();
     setTimeout(() => {
 
-        if (modal2) {
+        if (thankYouModal) {
             return;
         }
 
-        modal2 = document.createElement('div');
-        modal2.className = 'modal';
+        thankYouModal = document.createElement('div');
+        thankYouModal.className = 'modal';
 
         const TextDiv = document.createElement('div');
         TextDiv.className = 'text-container text-center';
@@ -115,11 +117,11 @@ function ThanksModalHandler() {
         TextDiv.append(modalText);
         ButtonDiv.append(modalCancelAction);
 
-        modal2.append(TextDiv);
-        modal2.append(ButtonDiv);
+        thankYouModal.append(TextDiv);
+        thankYouModal.append(ButtonDiv);
 
 
-        document.body.append(modal2);
+        document.body.append(thankYouModal);
 
         backdrop = document.createElement('div');
         backdrop.className = 'backdrop';
@@ -127,7 +129,7 @@ function ThanksModalHandler() {
         backdrop.addEventListener('click', closeModalHandler);
 
         document.body.append(backdrop);
-        transition(modal2);
+        transition(thankYouModal);
 
     }, 500);
 
